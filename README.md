@@ -10,7 +10,7 @@
 
 This repository contains the source code and methodology for the Master's Thesis: **"Benchmarking Long-Term Cognitive Networks for Predicting Football Match Outcomes with Perspectives from Market Odds and Model Explainability"**.
 
-The primary objective of this research is to benchmark the performance of **Long-Term Cognitive Networks (LTCN)**—a biologically inspired recurrent neural network adapted for tabular classification—against state-of-the-art Gradient Boosting Machine (GBM) models in the domain of football match forecasting (Home/Draw/Away).
+The primary objective of this research is to benchmark the performance of **Long-Term Cognitive Networks (LTCN)** a biologically inspired recurrent neural network adapted for tabular classification against state of the art Gradient Boosting Machine (GBM) models in the domain of football match forecasting (Home/Draw/Away).
 
 Unlike traditional approaches, this project implements an **"Odds-Plus"** strategy, integrating technical match statistics with betting market implied probabilities. Furthermore, it places a heavy emphasis on **Explainable AI (XAI)**, utilizing extensive ablation studies and genetic algorithms to decode model decision-making processes.
 
