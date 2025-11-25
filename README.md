@@ -1,6 +1,8 @@
-
-
 # Benchmarking Long-Term Cognitive Networks for Football Prediction ⚽📊
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Thesis%20Research-orange)
 
 **Repository Name:** `LTCN-Football-Prediction-Odds-XAI`
 
@@ -10,21 +12,28 @@ This project implements a robust machine learning pipeline to predict football m
 
 ## 🚀 Key Features
 
-  * **Custom LTCN Implementation:** A liquid time-constant network adapted for tabular classification tasks.
-  * **Multi-Source Data Integration:**
-      * Matches & Technical Stats (In-game statistics)
-      * ELO Ratings (Historical team strength)
-      * **Transfermarkt Data:** Advanced fuzzy matching algorithm to integrate player market values and financial data.
-  * **Advanced Feature Engineering:**
-      * "Odds-Plus" strategy combining betting market implied probabilities with technical stats.
-      * Leakage-free lag feature generation (Time-series safe).
-      * EDA-guided feature selection (Mutual Information & Diff-features).
-  * **Rigorous Validation:**
-      * Time-Series Cross-Validation to prevent look-ahead bias.
-      * Pre-SMOTE temporal splitting for validation sets.
-  * **Explainable AI (XAI) Suite:**
-      * Comparison of 6 importance methods: **SHAP**, **Permutation Feature Importance (PFI)**, **Predictive Mutual Information (PMI)**, **SOFI (Sensitivity-based, via Genetic Algorithms)**, and model-specific methods.
-      * Ablation studies to verify feature importance rankings.
+* **Custom LTCN Implementation:** A liquid time-constant network adapted for tabular classification tasks.
+* **Multi-Source Data Integration:**
+    * Matches & Technical Stats (In-game statistics)
+    * ELO Ratings (Historical team strength)
+    * **Transfermarkt Data:** Advanced fuzzy matching algorithm to integrate player market values and financial data.
+* **Advanced Feature Engineering:**
+    * "Odds-Plus" strategy combining betting market implied probabilities with technical stats.
+    * Leakage-free lag feature generation (Time-series safe).
+    * EDA-guided feature selection (Mutual Information & Diff-features).
+* **Rigorous Validation:**
+    * Time-Series Cross-Validation to prevent look-ahead bias.
+    * Pre-SMOTE temporal splitting for validation sets.
+* **Explainable AI (XAI) Suite:**
+    * Comparison of 6 importance methods: **SHAP**, **Permutation Feature Importance (PFI)**, **Predictive Mutual Information (PMI)**, **SOFI (Sensitivity-based, via Genetic Algorithms)**, and model-specific methods.
+    * Ablation studies to verify feature importance rankings.
+
+## 📂 Data Sources
+
+This research integrates data from distinct high-quality sources:
+
+1.  **Match Results, Statistics & Odds:** Historical match data, technical statistics, and betting odds were sourced from the **[Club-Football-Match-Data-2000-2025](https://github.com/xgabora/Club-Football-Match-Data-2000-2025)** repository by *xgabora*. This open-source dataset provided the foundational structure for match outcomes and ELO ratings.
+2.  **Market Values & Financials:** Player market values and club financial data were generously provided by the **Transfermarkt Data Science Team**.
 
 ## 🛠️ Methodology & Pipeline
 
@@ -33,26 +42,26 @@ The system (`FOOTBALL MATCH PREDICTION SYSTEM v18.0`) operates in sequential sta
 1.  **Data Ingestion & Fuzzy Matching:** Merges dataset using `rapidfuzz` to align team names across different sources.
 2.  **Feature Engineering:** Calculates rolling averages, log-transforms skewed financial data, and creates differential features (Home vs Away).
 3.  **Preprocessing:**
-      * **Smart Feature Selection:** Hybrid approach using Correlation and Mutual Information.
-      * **Class Balancing:** Targeted SMOTE application within the Cross-Validation loop (avoiding data leakage).
+    * **Smart Feature Selection:** Hybrid approach using Correlation and Mutual Information.
+    * **Class Balancing:** Targeted SMOTE application within the Cross-Validation loop (avoiding data leakage).
 4.  **Model Training & Tuning:**
-      * Hyperparameter optimization using **Optuna**.
-      * Models: **LTCN**, XGBoost, LightGBM, CatBoost, Random Forest, Logistic Regression, SVM, AdaBoost.
+    * Hyperparameter optimization using **Optuna**.
+    * Models: **LTCN**, XGBoost, LightGBM, CatBoost, Random Forest, Logistic Regression, SVM, AdaBoost.
 5.  **Evaluation:**
-      * Metrics: F1-Score (Weighted), Accuracy, AUC-ROC, Brier Score, Ranked Probability Score (RPS), Cohen's Kappa.
-      * Graphics: Thesis-compliant vector plots (PDF) generated via `matplotlib` and `seaborn`.
+    * Metrics: F1-Score (Weighted), Accuracy, AUC-ROC, Brier Score, Ranked Probability Score (RPS), Cohen's Kappa.
+    * Graphics: Thesis-compliant vector plots (PDF) generated via `matplotlib` and `seaborn`.
 
 ## 📦 Installation
 
 Cloning the repository and installing dependencies:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LTCN-Football-Prediction-Odds-XAI.git
+git clone [https://github.com/YOUR_USERNAME/LTCN-Football-Prediction-Odds-XAI.git](https://github.com/YOUR_USERNAME/LTCN-Football-Prediction-Odds-XAI.git)
 cd LTCN-Football-Prediction-Odds-XAI
 
 # It is recommended to use a virtual environment
 pip install -r requirements.txt
-```
+````
 
 *Note: The script automatically checks and installs required libraries (pandas, numpy, scikit-learn, optuna, shap, xgboost, lightgbm, catboost, rapidfuzz, pygad, etc.) upon execution if running in a Colab/Notebook environment.*
 
@@ -60,8 +69,8 @@ pip install -r requirements.txt
 
 ```
 ├── data/
-│   ├── Matches.csv             # Historical match data
-│   ├── EloRatings.csv          # Team ELO ratings
+│   ├── Matches.csv             # Match data (via xgabora repo)
+│   ├── EloRatings.csv          # ELO data (via xgabora repo)
 │   └── data.xlsx               # Transfermarkt market values
 ├── outputs/
 │   ├── graphics/               # Generated plots (PDF/PNG)
@@ -105,6 +114,7 @@ The system automatically generates comprehensive visualizations suitable for aca
 
   * **Prof. Gonzalo Nápoles** for supervision and guidance.
   * **Transfermarkt Data Science Team** for providing the market value data.
+  * **xgabora** for maintaining the open-source match database.
   * Open-source libraries: `scikit-learn`, `shap`, `optuna`, `pygad`, and gradient boosting frameworks.
 
 -----
@@ -113,5 +123,3 @@ The system automatically generates comprehensive visualizations suitable for aca
 
 This repository is for academic research purposes. The betting odds data and market values are used for predictive modeling analysis and do not constitute financial advice.
 
-```
-```
