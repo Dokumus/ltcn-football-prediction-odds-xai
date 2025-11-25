@@ -14,6 +14,18 @@ The primary objective of this research is to benchmark the performance of **Long
 
 Unlike traditional approaches, this project implements an **"Odds-Plus"** strategy, integrating technical match statistics with betting market implied probabilities. Furthermore, it places a heavy emphasis on **Explainable AI (XAI)**, utilizing extensive ablation studies and genetic algorithms to decode model decision-making processes.
 
+## 🧠 The Core Model: Long-Term Cognitive Network (LTCN)
+
+This repository introduces the **Long-Term Cognitive Network (LTCN)** model applied to structured pattern classification problems. Unlike traditional black-box models, LTCN offers a transparent approach to decision-making.
+
+> **Key Architectural Innovations:**
+>
+> * **Quasi-Nonlinear Reasoning:** Incorporates a specialized rule that allows precise control over the amount of non-linearity in the reasoning mechanism.
+> * **Recurrence-Aware Decision Model:** Utilizes a decision model that effectively evades issues posed by unique fixed points common in standard RNNs.
+> * **Deterministic Learning:** Introduces a deterministic algorithm to efficiently compute tunable parameters.
+
+*The simulations in this study demonstrate that the LTCN classifier achieves competitive results when compared to state-of-the-art white-box and black-box models.*
+
 ## 🤖 Models Used
 
 The study benchmarks a diverse set of machine learning algorithms, ranging from traditional statistical methods to advanced boosting frameworks and custom neural networks.
